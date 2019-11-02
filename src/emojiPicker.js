@@ -48,32 +48,31 @@ class EmojiPicker {
       },
       false
     );
-
-    emojiPicker.style.position = "absolute";
-    emojiPicker.style.right = "2px";
-    emojiPicker.style.outline = "none";
-    emojiPicker.style.top = "20px";
-    emojiPicker.style.zIndex = "999";
+    emojiPicker.setAttribute("class", "messages__input--emojipicker");
+    //emojiPicker.style.position = "fixed";
+    // emojiPicker.style.right = "2px";
+    // emojiPicker.style.outline = "none";
+    // emojiPicker.style.top = "20px";
+    // emojiPicker.style.zIndex = "999";
     emojiPicker.style.display = "none";
-    emojiPicker.style.width = "264px";
-    emojiPicker.style.padding = "7px 7px 7px 7px";
-    emojiPicker.style.marginTop = "5px";
-    emojiPicker.style.overflow = "hidden";
-    emojiPicker.style.background = "#fff";
-    emojiPicker.style.height = "200px";
-    emojiPicker.style.overflowY = "auto";
-    emojiPicker.style.boxShadow =
-      "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)";
-    emojiPicker.style.borderRadius = "2px;";
+    // emojiPicker.style.width = "264px";
+    // emojiPicker.style.padding = "7px 7px 7px 7px";
+    // emojiPicker.style.marginTop = "5px";
+    // emojiPicker.style.overflow = "hidden";
+    // emojiPicker.style.background = "#fff";
+    // emojiPicker.style.height = "200px";
+    // emojiPicker.style.overflowY = "auto";
+    // emojiPicker.style.boxShadow =
+    //   "0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)";
+    // emojiPicker.style.borderRadius = "2px;";
 
-    const emojiTrigger = document.createElement("a");
-    emojiTrigger.style.position = "absolute";
-    emojiTrigger.style.top = "2px";
-    emojiTrigger.style.right = "2px";
-    emojiTrigger.style.textDecoration = "none";
-    emojiTrigger.setAttribute("href", "javascript:void(0)");
-    emojiTrigger.innerHTML =
-      '<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 12 14"><path d="M8.9 8.4q-0.3 0.9-1.1 1.5t-1.8 0.6-1.8-0.6-1.1-1.5q-0.1-0.2 0-0.4t0.3-0.2q0.2-0.1 0.4 0t0.2 0.3q0.2 0.6 0.7 1t1.2 0.4 1.2-0.4 0.7-1q0.1-0.2 0.3-0.3t0.4 0 0.3 0.2 0 0.4zM5 5q0 0.4-0.3 0.7t-0.7 0.3-0.7-0.3-0.3-0.7 0.3-0.7 0.7-0.3 0.7 0.3 0.3 0.7zM9 5q0 0.4-0.3 0.7t-0.7 0.3-0.7-0.3-0.3-0.7 0.3-0.7 0.7-0.3 0.7 0.3 0.3 0.7zM11 7q0-1-0.4-1.9t-1.1-1.6-1.6-1.1-1.9-0.4-1.9 0.4-1.6 1.1-1.1 1.6-0.4 1.9 0.4 1.9 1.1 1.6 1.6 1.1 1.9 0.4 1.9-0.4 1.6-1.1 1.1-1.6 0.4-1.9zM12 7q0 1.6-0.8 3t-2.2 2.2-3 0.8-3-0.8-2.2-2.2-0.8-3 0.8-3 2.2-2.2 3-0.8 3 0.8 2.2 2.2 0.8 3z"/></svg>';
+    const emojiTrigger = document.createElement("div");
+    // emojiTrigger.style.position = "absolute";
+    // emojiTrigger.style.top = "2px";
+    // emojiTrigger.style.right = "2px";
+    // emojiTrigger.style.textDecoration = "none";
+    emojiTrigger.setAttribute("class", "messages__input--emojipicker--triger");
+    emojiTrigger.innerHTML = '<i class="fa fa-smile-o"></i>';
     emojiTrigger.onclick = () => {
       if (emojiPicker.style.display === "none") {
         emojiPicker.style.display = "block";
@@ -81,7 +80,8 @@ class EmojiPicker {
       emojiPicker.focus();
     };
 
-    emojiContainer.appendChild(emojiTrigger);
+    const messagesInput = document.getElementsByClassName("messages__input")[0];
+    messagesInput.appendChild(emojiTrigger);
 
     const emojiList = document.createElement("ul");
     emojiList.style.padding = "0";
